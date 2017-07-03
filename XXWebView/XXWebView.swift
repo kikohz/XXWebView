@@ -11,7 +11,6 @@ import UIKit
 import WebKit
 
 class XXWebViewController: UIViewController ,WKNavigationDelegate ,WKUIDelegate ,WKScriptMessageHandler{
-    
     var webTitle:String = ""        //title
     var url:String = ""             //请求uel
     var webView:WKWebView?
@@ -26,6 +25,12 @@ class XXWebViewController: UIViewController ,WKNavigationDelegate ,WKUIDelegate 
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        self.webView?.removeObserver(self, forKeyPath: "estimatedProgress")
+        self.webView?.navigationDelegate = nil
+        self.webView?.uiDelegate = nil
     }
     
     override func viewDidLoad() {
@@ -45,6 +50,7 @@ class XXWebViewController: UIViewController ,WKNavigationDelegate ,WKUIDelegate 
         let tempWebView = WKWebView(frame: view.frame, configuration: WKWebViewConfiguration())
         tempWebView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         tempWebView.navigationDelegate = self as WKNavigationDelegate
+        tempWebView.uiDelegate = self
         tempWebView.isMultipleTouchEnabled = true
         tempWebView.autoresizesSubviews = true
         tempWebView.scrollView.alwaysBounceVertical = true
@@ -60,7 +66,7 @@ class XXWebViewController: UIViewController ,WKNavigationDelegate ,WKUIDelegate 
         self.progressView = UIProgressView(progressViewStyle: .default)
         self.progressView?.trackTintColor = UIColor(white: 1.0, alpha: 0.0)
         self.progressView?.progressTintColor = UIColor.red
-        self.progressView?.frame = CGRect(x: 0, y: (self.webView?.frame.origin.y)!, width: self.view.frame.width, height: (self.progressView?.frame.size.height)!)
+        self.progressView?.frame = CGRect(x: 0, y: ((self.navigationController?.navigationBar.frame.origin.y)!+(self.navigationController?.navigationBar.frame.size.height)!), width: self.view.frame.width, height: (self.progressView?.frame.size.height)!)
         self.progressView?.autoresizingMask = [.flexibleTopMargin,.flexibleWidth]
         self.progressView?.setProgress(0.5, animated: true)
         self.view.addSubview(self.progressView!)
@@ -87,7 +93,7 @@ class XXWebViewController: UIViewController ,WKNavigationDelegate ,WKUIDelegate 
     
     public func getTitle() -> String {
         return (self.webView?.title)!
-    
+        
     }
     
     public func evaluateJavaScriptFromString(strJs: String ,completion: ((Any) -> Swift.Void)? = nil) {
@@ -243,7 +249,7 @@ extension wkScriptMessageHandler {
             return objc_getAssociatedObject(self, &jsHandlerKey) as! Dictionary
         }
         set(newValue) {
-             objc_setAssociatedObject(self, &jsHandlerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &jsHandlerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
