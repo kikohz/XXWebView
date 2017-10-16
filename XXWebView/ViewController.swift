@@ -21,8 +21,9 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let webview = XXWebViewController.init(url: "http://www.apple.com.cn", defaultTitle: "apple")
-        self.present(webview, animated: true, completion: nil)
+        let webview = XXWebViewController.init(url: "http://www.apple.com.cn", defaultTitle: "apple", showBack: true)
+        let webNav  = UINavigationController.init(rootViewController: webview)
+        self.present(webNav, animated: true, completion: nil)
     }
 
 }

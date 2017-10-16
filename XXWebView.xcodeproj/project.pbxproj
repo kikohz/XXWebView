@@ -13,6 +13,9 @@
 		334C86491F065802004C6DEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334C86481F065802004C6DEB /* Assets.xcassets */; };
 		334C864C1F065802004C6DEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334C864A1F065802004C6DEB /* LaunchScreen.storyboard */; };
 		334C86541F06580F004C6DEB /* XXWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C86531F06580F004C6DEB /* XXWebView.swift */; };
+		334C86691F0A39B5004C6DEB /* XXWebViewPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C86681F0A39B5004C6DEB /* XXWebViewPlugin.swift */; };
+		334C866F1F0B33C4004C6DEB /* Base.js in Resources */ = {isa = PBXBuildFile; fileRef = 334C866E1F0B33C4004C6DEB /* Base.js */; };
+		334C86711F0B3485004C6DEB /* Console.js in Resources */ = {isa = PBXBuildFile; fileRef = 334C86701F0B3485004C6DEB /* Console.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		334C864B1F065802004C6DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		334C864D1F065802004C6DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		334C86531F06580F004C6DEB /* XXWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XXWebView.swift; sourceTree = "<group>"; };
+		334C86681F0A39B5004C6DEB /* XXWebViewPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XXWebViewPlugin.swift; sourceTree = "<group>"; };
+		334C866E1F0B33C4004C6DEB /* Base.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Base.js; sourceTree = "<group>"; };
+		334C86701F0B3485004C6DEB /* Console.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Console.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,7 @@
 		334C86351F065802004C6DEB = {
 			isa = PBXGroup;
 			children = (
+				334C866C1F0B33C4004C6DEB /* www */,
 				334C86401F065802004C6DEB /* XXWebView */,
 				334C863F1F065802004C6DEB /* Products */,
 			);
@@ -63,8 +70,26 @@
 				334C86481F065802004C6DEB /* Assets.xcassets */,
 				334C864A1F065802004C6DEB /* LaunchScreen.storyboard */,
 				334C864D1F065802004C6DEB /* Info.plist */,
+				334C86681F0A39B5004C6DEB /* XXWebViewPlugin.swift */,
 			);
 			path = XXWebView;
+			sourceTree = "<group>";
+		};
+		334C866C1F0B33C4004C6DEB /* www */ = {
+			isa = PBXGroup;
+			children = (
+				334C866D1F0B33C4004C6DEB /* plugins */,
+			);
+			path = www;
+			sourceTree = "<group>";
+		};
+		334C866D1F0B33C4004C6DEB /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				334C866E1F0B33C4004C6DEB /* Base.js */,
+				334C86701F0B3485004C6DEB /* Console.js */,
+			);
+			path = plugins;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +124,7 @@
 				TargetAttributes = {
 					334C863D1F065802004C6DEB = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2275AUYSL7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -127,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				334C864C1F065802004C6DEB /* LaunchScreen.storyboard in Resources */,
+				334C866F1F0B33C4004C6DEB /* Base.js in Resources */,
 				334C86491F065802004C6DEB /* Assets.xcassets in Resources */,
+				334C86711F0B3485004C6DEB /* Console.js in Resources */,
 				334C86471F065802004C6DEB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				334C86691F0A39B5004C6DEB /* XXWebViewPlugin.swift in Sources */,
 				334C86441F065802004C6DEB /* ViewController.swift in Sources */,
 				334C86421F065802004C6DEB /* AppDelegate.swift in Sources */,
 				334C86541F06580F004C6DEB /* XXWebView.swift in Sources */,
@@ -264,7 +293,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2275AUYSL7;
 				INFOPLIST_FILE = XXWebView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinrong.XXWebView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,7 +307,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2275AUYSL7;
 				INFOPLIST_FILE = XXWebView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinrong.XXWebView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +336,7 @@
 				334C86521F065802004C6DEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
